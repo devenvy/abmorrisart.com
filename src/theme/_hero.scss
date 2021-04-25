@@ -6,6 +6,7 @@ section.hero {
     padding: 0;
     margin: 0;
     width: 100%;
+    margin-top: -80px;
 
     height: calc(100vh);
     background: linear-gradient(
@@ -42,10 +43,4 @@ section.hero {
     color: #fff;
     font-weight: 600;
     font-size: 18px;
-  }
-
-  @media (max-width: 47.999em) { 
-    section.hero {
-        margin-top: -80px;
-    }
   }

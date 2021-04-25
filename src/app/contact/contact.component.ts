@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'abma-contact',
@@ -8,8 +8,6 @@ import { Component, OnInit } from '@angular/core';
 
 // https://themes.gohugo.io/theme/roxo-hugo/contact , dont be shy stays, social links on right
 
-export class ContactComponent implements OnInit {
+export class ContactComponent {
     constructor() { }
-
-    ngOnInit() { }
 }

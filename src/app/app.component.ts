@@ -1,7 +1,7 @@
 import { Component, ElementRef, HostListener, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
+  selector: 'abma-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
