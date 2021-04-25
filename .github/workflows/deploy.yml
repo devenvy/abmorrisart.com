@@ -31,7 +31,7 @@ jobs:
 
     # deploy
     - name: Deploy
-      run: ng deploy
+      run: node node_modules/@angular/cli/bin/ng deploy
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
