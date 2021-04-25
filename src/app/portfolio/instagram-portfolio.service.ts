@@ -22,7 +22,7 @@ export class InstagramPortfolioService implements PortfolioService {
 
     get(searchParams: PortfolioSearchParams): Observable<Photo[]> {
         // const abmParams = { userId: 'abmorrisart' }; // "17841405564792002" // 5536017493
-        const abmParams = { userId: 'abmorrisart' };
+        const abmParams = { username: 'abmorrisart' };
         const igSearchParams = Object.assign(Object.assign({}, searchParams), abmParams);
         const req = this.buildRequest(igSearchParams);
 
@@ -103,10 +103,6 @@ export class InstagramPortfolioService implements PortfolioService {
 
         const cdnNum = ~~(Math.random() * 3333); // tslint:disable-line: no-bitwise
         const baseUrl = `https://images${cdnNum}-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=${instaUrl}`;
-
-        const headers = {
-            Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
-        };
 
         return this.httpClient.get(baseUrl, { responseType: 'text' }, );
     }
