@@ -1,0 +1,51 @@
+section.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    height: calc(100vh);
+    background: linear-gradient(
+        to right, 
+        #f2b0b1,
+        #fdc6c3 50%,
+        #cae9e3 50%,
+        #b9ddd9 100%
+      );
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero-title {
+  font-weight: 600;
+  font-size: 60px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hero-subtitle {
+  font-weight: 400;
+  font-size: 40px;
+  text-align: center;
+}
+
+.hero-links {
+    margin-top: 40px;
+  }
+  
+  .hero-links .pure-button {
+    margin-right: 25px;
+    margin-left: 25px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  @media (max-width: 47.999em) { 
+    section.hero {
+        margin-top: -80px;
+    }
+  }

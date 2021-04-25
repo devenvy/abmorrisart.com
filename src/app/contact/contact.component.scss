@@ -1,0 +1,66 @@
+@import 'src/theme/_variables.scss';
+
+section.contact {
+    background: $color-gray;
+    align-items: unset;
+    justify-content: start;
+    padding-top: 50px;
+}
+
+@media only screen and (min-width: 1280px) {
+    section.contact .hero {
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+  }
+
+  @media only screen and (max-width: 1023px) {
+    ul.social-list {
+        padding-top: 25px;
+    }
+
+    ul.social-list li {
+        max-width: 200px;
+        margin-left: 40px;
+    }
+
+    section.contact .hero {
+        margin-top: 10px;
+    }
+
+    section.contact .hero-title {
+        text-align: center;
+    }
+  }
+
+ul.social-list {
+    list-style-type: none; /* Remove bullets */
+    font-size: 25px;
+    margin-top: 0;
+}
+
+
+ul.social-list li {
+    padding-top: 25px;
+}
+
+ul.social-list li:first-of-type {
+    padding-top: 0px;
+}
+
+
+ul.social-list li a,a:link,a:visited,a:hover,a:active{
+    text-decoration: none;
+    color: $color-pink;
+}
+
+  .social-icon {
+      background: $color-pink;
+      vertical-align: middle;
+      height: 55px;
+      width: 55px;
+  }
+
+  .social-text {
+      margin-left: 15px;
+  }

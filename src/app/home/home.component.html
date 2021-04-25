@@ -1,0 +1,34 @@
+<section class="hero">
+
+    <div class="hero-title">
+        Amber Morris
+        <div class="hero-subtitle">Educator</div>
+        <div class="hero-subtitle">Visual Artist</div>
+    </div>
+
+    <div class="hero-links pure-g">
+        <div class="pure-u-1-2 hero-link-container">
+            <a [routerLink]="['/portfolio']" class="pure-button bg-green">See My Work</a>
+        </div>
+        <div class="pure-u-1-2 hero-link-container">
+            <a [routerLink]="['/contact']" class="pure-button bg-pink">Get in Touch</a>
+        </div>
+    </div>
+
+    <a href="#recent-works" style="position: absolute; bottom: 15px;">
+        <a id="recent-works"></a>
+        <img src="assets/icons/arrow-down.svg" alt="jump down" />
+    </a>
+</section>
+
+<section class="portfolio-preview">
+    
+    <h2 class="section-title">My Recent Works</h2>
+
+    <abma-photo-gallery *ngIf="photos$ | async as photos" [photos]="photos"></abma-photo-gallery>
+
+    <div style="text-align: center; margin-top: 20px;">
+        <a [routerLink]="['/portfolio']" style="font-size: 20px;" class="pure-button bg-pink txt-white">View more on Instagram</a>
+    </div>
+
+</section>

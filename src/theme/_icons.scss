@@ -1,0 +1,21 @@
+.icon {
+    --size: 70px;
+    display: inline-block;
+    width: var(--size);
+    height: var(--size);
+    
+    -webkit-mask-size: cover;
+    mask-size: cover;
+    background: black;
+  }
+  
+  .icon-email { -webkit-mask-image: url(/assets/icons/email.svg); mask-image: url(/assets/icons/email.svg); }
+  .icon-etsy { -webkit-mask-image: url(/assets/icons/etsy.svg); mask-image: url(/assets/icons/etsy.svg); }
+  .icon-facebook { -webkit-mask-image: url(/assets/icons/facebook.svg); mask-image: url(/assets/icons/facebook.svg); }
+  .icon-instagram { -webkit-mask-image: url(/assets/icons/instagram.svg); mask-image: url(/assets/icons/instagram.svg); }
+  .icon-patreon { -webkit-mask-image: url(/assets/icons/patreon.svg); mask-image: url(/assets/icons/patreon.svg); }
+  .icon-redbubble { -webkit-mask-image: url(/assets/icons/redbubble.svg); mask-image: url(/assets/icons/redbubble.svg); }
+  .icon-twitch { -webkit-mask-image: url(/assets/icons/twitch.svg); mask-image: url(/assets/icons/twitch.svg); }
+  .icon-twitter { -webkit-mask-image: url(/assets/icons/twitter.svg); mask-image: url(/assets/icons/twitter.svg); }
+  .icon-youtube { -webkit-mask-image: url(/assets/icons/youtube.svg); mask-image: url(/assets/icons/youtube.svg); }
+  .icon-phone { -webkit-mask-image: url(/assets/icons/phone.svg); mask-image: url(/assets/icons/phone.svg); }
