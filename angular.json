@@ -123,6 +123,14 @@
               "devServerTarget": "abmorrisart:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "cname": "abmorrisart.com",
+            "name": "DevEnvy CI",
+            "email": "ryan@devenvy.com"
+          }
         }
       }
     }

@@ -21,8 +21,8 @@ export class InstagramPortfolioService implements PortfolioService {
     constructor(private httpClient: HttpClient) { }
 
     get(searchParams: PortfolioSearchParams): Observable<Photo[]> {
-        const abmParams = { userId: 'abmorrisart' }; // "17841405564792002" // 5536017493
-        // const abmParams = { userId: 'abmorrisart' };
+        // const abmParams = { userId: 'abmorrisart' }; // "17841405564792002" // 5536017493
+        const abmParams = { userId: 'abmorrisart' };
         const igSearchParams = Object.assign(Object.assign({}, searchParams), abmParams);
         const req = this.buildRequest(igSearchParams);
 
