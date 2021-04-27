@@ -6,5 +6,6 @@ export class Photo {
         public large: string,
         public title: string,
         public description: string,
+        public tags?: string[],
     ) { }
 }

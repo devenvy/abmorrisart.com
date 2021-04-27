@@ -14,6 +14,7 @@ import { ScrollService } from './shared/scrolling/scroll.service';
 import { HttpClientModule } from '@angular/common/http';
 import { InstagramPortfolioService } from './portfolio/instagram-portfolio.service';
 import { ServicesComponent } from './services/services.component';
+import { LocalPortfolioService } from './portfolio/local-portfolio.service';
 
 @NgModule({
   declarations: [
@@ -35,10 +36,10 @@ import { ServicesComponent } from './services/services.component';
   ],
   providers: [
     ScrollService,
-    InstagramPortfolioService,
+    LocalPortfolioService,
     {
       provide: PortfolioService,
-      useClass: InstagramPortfolioService
+      useClass: LocalPortfolioService
     }
   ],
   bootstrap: [AppComponent]
