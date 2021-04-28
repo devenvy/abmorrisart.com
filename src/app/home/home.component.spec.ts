@@ -10,6 +10,10 @@ class MockPortfolioService extends PortfolioService {
     public get(params: PortfolioSearchParams): Observable<Photo[]> {
         return of([]);
     }
+
+    public getTags() {
+      return of([]);
+    }
 }
 
 describe('HomeComponent', () => {
