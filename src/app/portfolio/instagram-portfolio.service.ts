@@ -1,6 +1,6 @@
 import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Photo } from '../shared/photo-gallery/photo';
 import { PortfolioSearchParams, PortfolioService } from './portfolio.service';
@@ -105,5 +105,9 @@ export class InstagramPortfolioService implements PortfolioService {
         const baseUrl = `https://images${cdnNum}-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=${instaUrl}`;
 
         return this.httpClient.get(baseUrl, { responseType: 'text' }, );
+    }
+
+    getTags(): Observable<string[]> {
+        return of([]);
     }
 }

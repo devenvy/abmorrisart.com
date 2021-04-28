@@ -6,7 +6,7 @@ import { PortfolioComponent } from './portfolio/portfolio.component';
 import { ServicesComponent } from './services/services.component';
 
 const routes: Routes = [
-  // { path: 'portfolio', pathMatch: 'prefix', component: PortfolioComponent },
+  { path: 'portfolio', pathMatch: 'prefix', component: PortfolioComponent },
   { path: 'contact', pathMatch: 'prefix', component: ContactComponent },
   { path: 'services', pathMatch: 'prefix', component: ServicesComponent },
 

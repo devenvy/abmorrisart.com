@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { InstagramPortfolioService } from './portfolio/instagram-portfolio.service';
 import { ServicesComponent } from './services/services.component';
 import { LocalPortfolioService } from './portfolio/local-portfolio.service';
+import { QueryParamModule } from '@ngqp/core';
 
 @NgModule({
   declarations: [
@@ -28,11 +29,13 @@ import { LocalPortfolioService } from './portfolio/local-portfolio.service';
     HeaderComponent,
     PhotoGalleryComponent,
     PhotoModalComponent,
+    PortfolioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    QueryParamModule
   ],
   providers: [
     ScrollService,

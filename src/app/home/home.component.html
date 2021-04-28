@@ -8,7 +8,7 @@
 
     <div class="hero-links pure-g">
         <div class="pure-u-1-2 hero-link-container">
-            <a href="https://instagram.com/abmorrisart" class="pure-button bg-green">See My Work</a>
+            <a [routerLink]="['/portfolio']" class="pure-button bg-green">See My Work</a>
         </div>
         <div class="pure-u-1-2 hero-link-container">
             <a [routerLink]="['/contact']" class="pure-button bg-pink">Get in Touch</a>
@@ -28,7 +28,7 @@
     <abma-photo-gallery *ngIf="photos$ | async as photos" [photos]="photos"></abma-photo-gallery>
 
     <div style="text-align: center; margin-top: 20px;">
-        <a href="https://instagram.com/abmorrisart" style="font-size: 20px;" class="pure-button bg-pink txt-white">View more on Instagram</a>
+        <a [routerLink]="['/portfolio']" style="font-size: 20px;" class="pure-button bg-pink txt-white">View More</a>
     </div>
 
 </section>
