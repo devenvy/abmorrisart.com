@@ -11,7 +11,7 @@ class MockPortfolioService extends PortfolioService {
         return of([]);
     }
 
-    public getTags() {
+    public getTags(): Observable<string[]> {
       return of([]);
     }
 }
