@@ -36,6 +36,11 @@ table {
     margin-top: 25px;
 }
 
+a.example-link:link,a.example-link:visited,a.example-link:hover,a.example-link:active {
+    font-size: 16px;
+    text-decoration: none;
+}
+
 @media only screen and (min-width: 1280px) {
     section.services .hero {
         max-width: 960px;
@@ -60,5 +65,9 @@ table {
 
     table {
         font-size: 14px;
+    }
+
+    a.example-link:link,a.example-link:visited,a.example-link:hover,a.example-link:active {
+        margin-left: 5px;
     }
   }
