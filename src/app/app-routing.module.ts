@@ -18,6 +18,7 @@ const routes: Routes = [
   imports: [
     RouterModule.forRoot(routes, {
       scrollPositionRestoration: 'top',
+      anchorScrolling: 'enabled',
     })
   ],
   exports: [RouterModule]
