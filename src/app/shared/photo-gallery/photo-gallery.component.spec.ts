@@ -35,7 +35,7 @@ describe('PhotoGalleryComponent', () => {
 
         fixture.detectChanges();
         await fixture.whenStable();
-        
+
         const photoEls = fixture.nativeElement.querySelectorAll('picture');
         expect(photoEls?.length).toEqual(app.photos.length);
     });

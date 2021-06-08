@@ -42,7 +42,7 @@ describe('PortfolioComponent', () => {
         await fixture.whenStable();
         const compiled = fixture.nativeElement;
         const filterLabelEl = compiled.querySelector('label[for=filter]');
-        expect(filterLabelEl?.textContent).toBe('Filter:')
+        expect(filterLabelEl?.textContent).toBe('Filter:');
     });
 
     it('should render all tags as options', async () => {
