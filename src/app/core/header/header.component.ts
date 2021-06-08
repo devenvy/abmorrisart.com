@@ -64,6 +64,5 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 
     toggleMenu(): void {
         this.menuIsOpen = !this.menuIsOpen;
-        console.log(this.menuIsOpen);
     }
 }

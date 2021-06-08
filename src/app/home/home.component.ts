@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Photo } from '../shared/photo-gallery/photo';
+import { Photo } from '../photos/shared/photo.model';
 import { map } from 'rxjs/operators';
-import { PortfolioService } from '../portfolio/portfolio.service';
+import { PhotoService } from '../photos/shared/photo.service';
 
 @Component({
     selector: 'abma-home',
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
     photos$: Observable<Photo[]> = of([]);
 
-    constructor(private portfolioService: PortfolioService) { }
+    constructor(private portfolioService: PhotoService) { }
 
     ngOnInit(): void {
         this.photos$ = this.portfolioService.get({ limit: 6, offset: 0});

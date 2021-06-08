@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Photo } from './photo';
+import { Photo } from '../shared/photo.model';
 
 @Component({
     selector: 'abma-photo-gallery',
@@ -15,12 +15,10 @@ export class PhotoGalleryComponent {
     constructor() { }
 
     onPhotoSelected(photo: Photo): void {
-        console.log(photo);
         this.selectedPhoto = photo;
     }
 
     onModalClosed(): void {
-        console.log('modal closed');
         this.selectedPhoto = undefined;
     }
 }
