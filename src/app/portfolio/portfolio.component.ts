@@ -1,12 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
 import { QueryParamBuilder, QueryParamGroup } from '@ngqp/core';
-import { Observable, of, pipe, Subject, Subscription } from 'rxjs';
-import { map, takeUntil } from 'rxjs/operators';
+import { Observable, of, Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { Photo } from '../shared/photo-gallery/photo';
-import { ScrollService } from '../shared/scrolling/scroll.service';
-import { InstagramPortfolioService } from './instagram-portfolio.service';
 import { PortfolioSearchParams, PortfolioService } from './portfolio.service';
 
 @Component({
@@ -28,7 +24,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
     tags$ = of(Object.keys(this.tagMap));
     photos$?: Observable<Photo[]>;
 
-    constructor(private portfolioService: PortfolioService, private route: ActivatedRoute, qpb: QueryParamBuilder) {
+    constructor(private portfolioService: PortfolioService, qpb: QueryParamBuilder) {
         this.searchParamsGroup = qpb.group({
             limit: qpb.numberParam('limit', { emptyOn: 100000 }),
             offset: qpb.numberParam('offset', { emptyOn: 0 }),

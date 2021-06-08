@@ -1,36 +1,24 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MockProvider } from 'ng-mocks';
 import { Observable, of } from 'rxjs';
 import { PortfolioSearchParams, PortfolioService } from '../portfolio/portfolio.service';
 import { Photo } from '../shared/photo-gallery/photo';
 import { PhotoGalleryComponent } from '../shared/photo-gallery/photo-gallery.component';
 import { HomeComponent } from './home.component';
 
-class MockPortfolioService extends PortfolioService {
-    public get(params: PortfolioSearchParams): Observable<Photo[]> {
-        return of([]);
-    }
-
-    public getTags(): Observable<string[]> {
-      return of([]);
-    }
-}
-
 describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
         HomeComponent,
         PhotoGalleryComponent,
       ],
       providers: [
-          {
-              provide: PortfolioService,
-              useClass: MockPortfolioService,
-          }
+        MockProvider(PortfolioService, {
+          get: () => of([]),
+          getTags: () => of([]),
+        })
       ]
     }).compileComponents();
   });

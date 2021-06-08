@@ -12,7 +12,6 @@ import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.comp
 import { PhotoModalComponent } from './shared/photo-modal/photo-modal.component';
 import { ScrollService } from './shared/scrolling/scroll.service';
 import { HttpClientModule } from '@angular/common/http';
-import { InstagramPortfolioService } from './portfolio/instagram-portfolio.service';
 import { ServicesComponent } from './services/services.component';
 import { LocalPortfolioService } from './portfolio/local-portfolio.service';
 import { QueryParamModule } from '@ngqp/core';

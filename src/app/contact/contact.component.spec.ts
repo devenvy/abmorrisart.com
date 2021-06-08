@@ -5,9 +5,6 @@ import { ContactComponent } from './contact.component';
 describe('ContactComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
       declarations: [
         ContactComponent,
       ],

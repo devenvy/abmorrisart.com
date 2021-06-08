@@ -15,12 +15,10 @@ export class PhotoGalleryComponent {
     constructor() { }
 
     onPhotoSelected(photo: Photo): void {
-        console.log(photo);
         this.selectedPhoto = photo;
     }
 
     onModalClosed(): void {
-        console.log('modal closed');
         this.selectedPhoto = undefined;
     }
 }
