@@ -6,13 +6,13 @@ import { AppComponent } from './app.component';
 import { ContactComponent } from './contact/contact.component';
 import { HomeComponent } from './home/home.component';
 import { PortfolioComponent } from './portfolio/portfolio.component';
-import { PortfolioService } from './portfolio/portfolio.service';
-import { HeaderComponent } from './shared/header/header.component';
-import { PhotoGalleryComponent } from './shared/photo-gallery/photo-gallery.component';
-import { PhotoModalComponent } from './shared/photo-modal/photo-modal.component';
+import { PhotoService } from './photos/shared/photo.service';
+import { HeaderComponent } from './core/header/header.component';
+import { PhotoGalleryComponent } from './photos/photo-gallery/photo-gallery.component';
+import { PhotoModalComponent } from './photos/photo-modal/photo-modal.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ServicesComponent } from './services/services.component';
-import { LocalPortfolioService } from './portfolio/local-portfolio.service';
+import { LocalPhotoService } from './photos/shared/local-photo.service';
 import { QueryParamModule } from '@ngqp/core';
 
 @NgModule({
@@ -36,10 +36,10 @@ import { QueryParamModule } from '@ngqp/core';
     QueryParamModule
   ],
   providers: [
-    LocalPortfolioService,
+    LocalPhotoService,
     {
-      provide: PortfolioService,
-      useClass: LocalPortfolioService
+      provide: PhotoService,
+      useClass: LocalPhotoService
     }
   ],
   bootstrap: [AppComponent]

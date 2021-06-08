@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { Photo } from '../photo-gallery/photo';
+import { Photo } from '../shared/photo.model';
 
 @Component({
     selector: 'abma-modal',
@@ -7,15 +7,11 @@ import { Photo } from '../photo-gallery/photo';
     styleUrls: ['photo-modal.component.scss']
 })
 
-export class PhotoModalComponent implements AfterViewInit {
+export class PhotoModalComponent {
 
     @Input() photo?: Photo;
 
     @Output() modalClosed = new EventEmitter<void>();
 
     constructor() { }
-
-    ngAfterViewInit(): void {
-        console.log(this.photo);
-    }
 }

@@ -5,9 +5,9 @@ import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 import { QueryParamModule } from '@ngqp/core';
 import { Observable, of } from 'rxjs';
-import { Photo } from '../shared/photo-gallery/photo';
+import { Photo } from '../photos/shared/photo.model';
 import { PortfolioComponent } from './portfolio.component';
-import { PortfolioSearchParams, PortfolioService } from './portfolio.service';
+import { PhotoSearchParams, PhotoService } from '../photos/shared/photo.service';
 import { MockProvider } from 'ng-mocks';
 
 describe('PortfolioComponent', () => {
@@ -22,7 +22,7 @@ describe('PortfolioComponent', () => {
                 PortfolioComponent,
             ],
             providers: [
-                MockProvider(PortfolioService, {
+                MockProvider(PhotoService, {
                     get: () => of([]),
                     getTags: () => of([]),
                 })

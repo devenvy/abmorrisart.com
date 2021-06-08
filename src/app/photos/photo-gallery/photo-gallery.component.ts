@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Photo } from './photo';
+import { Photo } from '../shared/photo.model';
 
 @Component({
     selector: 'abma-photo-gallery',

@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { Photo } from '../shared/photo-gallery/photo';
-import { PortfolioSearchParams, PortfolioService } from './portfolio.service';
-import * as photosData from './photos.json';
+import { Photo } from './photo.model';
+import { PhotoSearchParams, PhotoService } from './photo.service';
+import * as photosData from '../data/photos.json';
 import { map, shareReplay, tap } from 'rxjs/operators';
 
 
 @Injectable({ providedIn: 'root' })
-export class LocalPortfolioService extends PortfolioService {
+export class LocalPhotoService extends PhotoService {
 
     private tags = new BehaviorSubject<Photo[]>([]);
     private tags$ = this.tags.pipe(
-        tap(_ => console.log('executed')),
         map(photos => {
             const tags: { [key: string]: string } = {};
             photos.forEach(photo => {
@@ -36,8 +35,7 @@ export class LocalPortfolioService extends PortfolioService {
         return (photosData as any).default;
     }
 
-    public get(params: PortfolioSearchParams): Observable<Photo[]> {
-        console.log(params);
+    public get(params: PhotoSearchParams): Observable<Photo[]> {
         let photos = this.getAll().slice(params.offset, params.offset + params.limit);
 
         if (params.tags) {

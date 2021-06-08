@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Observable, of } from 'rxjs';
-import { PortfolioSearchParams, PortfolioService } from '../portfolio/portfolio.service';
-import { Photo } from '../shared/photo-gallery/photo';
-import { PhotoGalleryComponent } from '../shared/photo-gallery/photo-gallery.component';
+import { PhotoSearchParams, PhotoService } from '../photos/shared/photo.service';
+import { Photo } from '../photos/shared/photo.model';
+import { PhotoGalleryComponent } from '../photos/photo-gallery/photo-gallery.component';
 import { ServicesComponent } from './services.component';
 
 describe('ServicesComponent', () => {
