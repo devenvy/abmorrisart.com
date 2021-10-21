@@ -17,6 +17,7 @@ export class PortfolioComponent implements OnInit, OnDestroy {
         All: [],
         'Digital Portrait': ['#portrait', '#procreate'],
         'Painted Portrait': ['#portrait', '#painting'],
+        'Live Wedding': ['#painting'],
         Watercolor: ['#watercolor'],
     };
 
