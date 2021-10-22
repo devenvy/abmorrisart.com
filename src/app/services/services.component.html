@@ -33,101 +33,70 @@
                     <thead>
                         <tr style="vertical-align: top;">
                             <th>Size</th>
-                            <th>1 Person <br /> <span
-                                    style="font-size: 14px; font-weight: normal; font-style: italic;">base price</span>
-                            </th>
-                            <th>2 People</th>
-                            <th>3 People</th>
-                            <th>1 Pet</th>
-                            <th>Landscape/<br />House</th>
+                            <th>Price*</th>
+                            <th>Max People**</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td>8"x10"</td>
-                            <td>$80</td>
-                            <td></td>
-                            <td></td>
-                            <td>$60</td>
-                            <td></td>
+                            <td>$30</td>
+                            <td>1</td>
                         </tr>
                         <tr>
                             <td>11"x14"</td>
-                            <td>$150</td>
-                            <td></td>
-                            <td></td>
-                            <td>$130</td>
-                            <td></td>
+                            <td>$55</td>
+                            <td>1</td>
                         </tr>
                         <tr>
                             <td>12"x16"</td>
-                            <td>$192</td>
-                            <td>$222</td>
-                            <td></td>
-                            <td>$172</td>
-                            <td>$172</td>
+                            <td>$70</td>
+                            <td>2</td>
                         </tr>
                         <tr>
                             <td>16"x20"</td>
-                            <td>$250</td>
-                            <td>$280</td>
-                            <td>$310</td>
-                            <td>$210</td>
-                            <td>$210</td>
+                            <td>$110</td>
+                            <td>2</td>
                         </tr>
                         <tr>
                             <td>18"x24"</td>
-                            <td>$300</td>
-                            <td>$330</td>
-                            <td>$360</td>
-                            <td>$240</td>
-                            <td>$240</td>
+                            <td>$150</td>
+                            <td>3</td>
                         </tr>
                         <tr>
                             <td>24"x30"</td>
-                            <td>$350</td>
-                            <td>$380</td>
-                            <td>$410</td>
-                            <td>$280</td>
-                            <td>$280</td>
+                            <td>$250</td>
+                            <td>3</td>
                         </tr>
                         <tr>
                             <td>24"x36"</td>
-                            <td>$400</td>
-                            <td>$430</td>
-                            <td>$460</td>
-                            <td>$320</td>
-                            <td>$320</td>
+                            <td>$300</td>
+                            <td>4</td>
                         </tr>
                         <tr>
                             <td>30"x40"</td>
-                            <td>$450</td>
-                            <td>$480</td>
-                            <td>$510</td>
-                            <td>$360</td>
-                            <td>$360</td>
+                            <td>$420</td>
+                            <td>6</td>
                         </tr>
                         <tr>
                             <td>36"x48"</td>
-                            <td>$500</td>
-                            <td>$530</td>
-                            <td>$560</td>
-                            <td>$400</td>
-                            <td>$400</td>
+                            <td>$600</td>
+                            <td>8</td>
                         </tr>
                     </tbody>
                 </table>
 
-                <div style="max-width: 500px; margin-top: 20px; margin-left: 10px">
-                    *Large group take the base price for the size you want and add $30 per person and $20 per pet
-                    (minumum size of 18" x 24")
+                <div style="max-width: 500px; margin-top: 20px; margin-left: 10px; font-size: 14px;">
+                    * <span style="font-weight: bold;">Price:</span> Amounts shown are estimates. <br/><br/>
+                    ** <span style="font-weight: bold;">Max People:</span> Due to size constraints, the recommended maximum number of people for a given size. For more than the recommended number of people add $30 per person.
                 </div>
             </div>
         </div>
 
         <div class="pure-g service-block">
             <div class="pure-u-5-5 pure-u-lg-8-24 service-title">
-                Live Event Painting 
+                Live Event Painting <br/>
+                <a class="example-link" [routerLink]="['/portfolio']" [queryParams]="{ tag: 'Live Event'}">View examples</a>
             </div>
             <div class="pure-u-1-24">&nbsp;</div>
             <div class="pure-u-5-5 pure-u-lg-15-24 service-description">

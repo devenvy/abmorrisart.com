@@ -36,6 +36,6 @@ describe('ServicesComponent', () => {
 
     const compiled = fixture.nativeElement;
     const exampleLinkEls = compiled.querySelectorAll('.example-link');
-    expect(exampleLinkEls?.length).toEqual(2);
+    expect(exampleLinkEls?.length).toEqual(3);
   });
 });

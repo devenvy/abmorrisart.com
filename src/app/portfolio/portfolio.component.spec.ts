@@ -52,7 +52,7 @@ describe('PortfolioComponent', () => {
 
         const compiled = fixture.nativeElement;
         const exampleLinkEls = compiled.querySelectorAll('#filter option');
-        expect(exampleLinkEls?.length).toEqual(4);
+        expect(exampleLinkEls?.length).toEqual(5);
     });
 
     it('should autoselect ', async () => {

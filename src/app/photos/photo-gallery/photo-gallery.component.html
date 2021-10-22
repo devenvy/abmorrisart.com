@@ -9,5 +9,5 @@
         </picture>
     </div>
 
-    <abma-modal *ngIf="selectedPhoto" [photo]="selectedPhoto" (modalClosed)="onModalClosed()"></abma-modal>
+    <abma-multiphoto-modal *ngIf="selectedPhoto" [activePhoto]="selectedPhoto" [photos]="photos" (modalClosed)="onModalClosed()"></abma-multiphoto-modal>
 </section>
