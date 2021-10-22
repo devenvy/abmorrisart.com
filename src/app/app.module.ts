@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerGestureConfig, HammerModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -14,6 +14,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { ServicesComponent } from './services/services.component';
 import { LocalPhotoService } from './photos/shared/local-photo.service';
 import { QueryParamModule } from '@ngqp/core';
+import { MultiPhotoModalComponent } from './photos/multi-photo-modal/multi-photo-modal.component';
+
+import * as Hammer from 'hammerjs';
+
+export class MyHammerConfig extends HammerGestureConfig {
+  overrides = <any> {
+    swipe: { direction: Hammer.DIRECTION_ALL },
+  };
+}
 
 @NgModule({
   declarations: [
@@ -27,20 +36,26 @@ import { QueryParamModule } from '@ngqp/core';
     HeaderComponent,
     PhotoGalleryComponent,
     PhotoModalComponent,
-    PortfolioComponent
+    PortfolioComponent,
+    MultiPhotoModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    QueryParamModule
+    QueryParamModule,
+    HammerModule
   ],
   providers: [
     LocalPhotoService,
     {
       provide: PhotoService,
       useClass: LocalPhotoService
-    }
+    },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: MyHammerConfig,
+    },
   ],
   bootstrap: [AppComponent]
 })
