@@ -19,9 +19,9 @@ import { MultiPhotoModalComponent } from './photos/multi-photo-modal/multi-photo
 import * as Hammer from 'hammerjs';
 
 export class MyHammerConfig extends HammerGestureConfig {
-  overrides = <any> {
+  overrides = {
     swipe: { direction: Hammer.DIRECTION_ALL },
-  };
+  } as any;
 }
 
 @NgModule({

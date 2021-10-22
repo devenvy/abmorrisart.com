@@ -17,48 +17,7 @@ export class MultiPhotoModalComponent {
 
     constructor() { }
 
-    onSwipe(evt: any) {
-        console.log(evt);
-        
-        // up/down
-        if (evt.delatY >= evt.deltaX) {
-            const y = Math.abs(evt.deltaY) > 40 ? (evt.deltaY > 0 ? 'down' : 'up') : '';
-
-            if (y === '') {
-                return;
-            }
-
-            if (y === 'up') {
-                this.back();
-                return;
-            }
-
-            if (y === 'down') {
-                this.next();
-                return;
-            }
-        }
-
-        const x = Math.abs(evt.deltaY) > 40 ? (evt.deltaY > 0 ? 'left' : 'right') : '';
-
-        if (x === '') {
-            return;
-        }
-
-        if (x === 'left') {
-            this.back();
-            return;
-        }
-
-        if (x === 'right') {
-            this.next();
-            return;
-        }
-
-
-    }
-
-    next() {
+    next(): void {
         if (this.activePhoto === undefined || this.photos === undefined) {
             return;
         }
@@ -72,7 +31,7 @@ export class MultiPhotoModalComponent {
         this.activePhoto = this.photos[idx];
     }
 
-    back() {
+    back(): void {
         if (this.activePhoto === undefined || this.photos === undefined) {
             return;
         }
