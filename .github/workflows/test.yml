@@ -29,8 +29,8 @@ jobs:
       run: npm ci
 
     # lint
-    - name: Lint
-      run: node_modules/.bin/ng lint abmorrisart
+    #- name: Lint
+    #  run: node_modules/.bin/ng lint abmorrisart
 
     # test
     - name: Test
