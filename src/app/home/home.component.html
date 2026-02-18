@@ -23,7 +23,7 @@
 <section class="portfolio-preview">
 
   <h2 class="section-title">My Recent Works</h2>
-  <a link="recent-works"></a>
+  <div id="recent-works"></div>
   @if (photos$ | async; as photos) {
     <abma-photo-gallery [photos]="photos"></abma-photo-gallery>
   }

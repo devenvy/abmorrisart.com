@@ -1,5 +1,5 @@
-<div #modalContainer class="modal" (click)="modalClosed.emit()">
-  <span class="close" (click)="modalClosed.emit()">&times;</span>
+<div #modalContainer class="modal" tabindex="0" (click)="modalClosed.emit()" (keyup.enter)="modalClosed.emit()" (keyup.space)="modalClosed.emit()">
+  <button class="close" type="button" aria-label="Close" (click)="modalClosed.emit()">&times;</button>
   @if (photo) {
     <img class="modal-content" alt="{{photo!.title}}" [src]="photo!.original"/>
   }

@@ -5,7 +5,7 @@
       <picture>
         <source media="(max-width: 799px)" [srcset]="photo.small">
         <source media="(min-width: 800px)" [srcset]="photo.medium">
-        <img class="pure-img" [src]="photo.original" [alt]="photo.title" (click)="onPhotoSelected(photo)">
+        <img class="pure-img" [src]="photo.original" [alt]="photo.title" role="button" tabindex="0" (click)="onPhotoSelected(photo)" (keyup.enter)="onPhotoSelected(photo)" (keyup.space)="onPhotoSelected(photo)">
       </picture>
     </div>
   }
