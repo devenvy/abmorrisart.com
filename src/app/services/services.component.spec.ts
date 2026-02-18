@@ -1,14 +1,11 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Observable, of } from 'rxjs';
-import { PhotoSearchParams, PhotoService } from '../photos/shared/photo.service';
-import { Photo } from '../photos/shared/photo.model';
-import { PhotoGalleryComponent } from '../photos/photo-gallery/photo-gallery.component';
 import { ServicesComponent } from './services.component';
 
 describe('ServicesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [RouterTestingModule],
       declarations: [
         ServicesComponent,
       ],

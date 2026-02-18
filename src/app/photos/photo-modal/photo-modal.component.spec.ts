@@ -1,7 +1,6 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
-import { Router } from '@angular/router';
 import { firstValueFrom } from 'rxjs';
 import { PhotoModalComponent } from './photo-modal.component';
 

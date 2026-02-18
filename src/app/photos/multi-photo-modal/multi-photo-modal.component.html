@@ -1,4 +1,6 @@
 <div #modalContainer class="modal" (swipeleft)="next()" (swiperight)="back()" (swipeup)="next()" (swipedown)="back()">
-    <span class="close" (click)="modalClosed.emit()">&times;</span>
-    <img *ngIf="activePhoto" class="modal-content" [src]="activePhoto!.original" />
+  <span class="close" (click)="modalClosed.emit()">&times;</span>
+  @if (activePhoto) {
+    <img class="modal-content" alt="{{activePhoto!.title}}" [src]="activePhoto!.original" />
+  }
 </div>

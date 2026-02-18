@@ -3,7 +3,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { Photo } from './photo.model';
 import { PhotoSearchParams, PhotoService } from './photo.service';
 import * as photosData from '../data/photos.json';
-import { map, shareReplay, tap } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 
 
 @Injectable({ providedIn: 'root' })
@@ -12,7 +12,7 @@ export class LocalPhotoService extends PhotoService {
     private tags = new BehaviorSubject<Photo[]>([]);
     private tags$ = this.tags.pipe(
         map(photos => {
-            const tags: { [key: string]: string } = {};
+            const tags: Record<string, string> = {};
             photos.forEach(photo => {
                 photo.tags?.forEach(tag => {
                     if (!tags[tag]) {

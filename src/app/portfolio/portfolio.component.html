@@ -1,10 +1,16 @@
 <div style="padding-top: 10px; "></div>
 
-<form [queryParamGroup]="searchParamsGroup" class="pure-form" style="text-align: right; padding: 1em;">
-    <label for="filter">Filter:</label> &nbsp;
-    <select id="filter" queryParamName="tag" *ngIf="tags$ | async as tags">
-        <option *ngFor="let tag of tags" [value]="tag">{{tag}}</option>
+<form class="pure-form" style="text-align: right; padding: 1em;">
+  <label for="filter">Filter:</label> &nbsp;
+  @if (tags$ | async; as tags) {
+    <select id="filter" [value]="selectedTag" (change)="onTagChanged(($any($event.target)).value)">
+      @for (tag of tags; track tag) {
+        <option [value]="tag">{{tag}}</option>
+      }
     </select>
+  }
 </form>
 
-<abma-photo-gallery *ngIf="photos$ | async as photos" [photos]="photos"></abma-photo-gallery>
+@if (photos$ | async; as photos) {
+  <abma-photo-gallery [photos]="photos"></abma-photo-gallery>
+}

@@ -1,15 +1,15 @@
 import { AfterViewInit, Component, ElementRef, HostListener, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
 @Component({
     selector: 'abma-header',
     templateUrl: 'header.component.html',
-    styleUrls: ['header.component.scss']
+    styleUrls: ['header.component.scss'],
+    standalone: false
 })
 
 export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
-    private rollBack?: any;
     private routechange?: Subscription;
 
     menuIsOpen = false;
@@ -39,7 +39,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
     }
 
     @HostListener('window:scroll', ['$event'])
-    onScroll($event: Event): void {
+    onScroll(_: Event): void {
         if (!this.navbar) {
             return;
         }
@@ -56,7 +56,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
         this.navbar?.nativeElement.classList.remove('closing');
         [].forEach.call(
             this.navbar?.nativeElement.querySelectorAll('.custom-can-transform'),
-            el => {
+            () => {
                 // el.classList.toggle('pure-menu-horizontal');
             }
         );

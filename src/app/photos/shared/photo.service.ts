@@ -1,4 +1,4 @@
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Photo } from './photo.model';
 
 export interface PhotoSearchParams {

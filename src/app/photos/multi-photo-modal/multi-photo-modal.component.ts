@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Photo } from '../shared/photo.model';
 
 @Component({
     selector: 'abma-multiphoto-modal',
     templateUrl: 'multi-photo-modal.component.html',
-    styleUrls: ['multi-photo-modal.component.scss']
+    styleUrls: ['multi-photo-modal.component.scss'],
+    standalone: false
 })
 
 export class MultiPhotoModalComponent {

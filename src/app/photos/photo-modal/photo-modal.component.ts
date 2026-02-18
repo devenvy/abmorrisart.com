@@ -1,10 +1,11 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Photo } from '../shared/photo.model';
 
 @Component({
     selector: 'abma-modal',
     templateUrl: 'photo-modal.component.html',
-    styleUrls: ['photo-modal.component.scss']
+    styleUrls: ['photo-modal.component.scss'],
+    standalone: false
 })
 
 export class PhotoModalComponent {

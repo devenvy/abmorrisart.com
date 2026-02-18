@@ -1,10 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Photo } from '../shared/photo.model';
 
 @Component({
     selector: 'abma-photo-gallery',
     templateUrl: 'photo-gallery.component.html',
-    styleUrls: ['photo-gallery.component.scss']
+    styleUrls: ['photo-gallery.component.scss'],
+    standalone: false
 })
 
 export class PhotoGalleryComponent {

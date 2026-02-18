@@ -1,31 +1,26 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { BrowserModule } from '@angular/platform-browser';
-import { Router } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
-import { QueryParamModule } from '@ngqp/core';
-import { Observable, of } from 'rxjs';
-import { Photo } from '../photos/shared/photo.model';
+import { provideRouter, Router } from '@angular/router';
+import { of } from 'rxjs';
 import { PortfolioComponent } from './portfolio.component';
-import { PhotoSearchParams, PhotoService } from '../photos/shared/photo.service';
-import { MockProvider } from 'ng-mocks';
+import { PhotoService } from '../photos/shared/photo.service';
 
 describe('PortfolioComponent', () => {
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            imports: [
-                BrowserModule,
-                RouterTestingModule.withRoutes([]),
-                QueryParamModule,
-            ],
+            imports: [],
             declarations: [
                 PortfolioComponent,
             ],
             providers: [
-                MockProvider(PhotoService, {
-                    get: () => of([]),
-                    getTags: () => of([]),
-                })
+                provideRouter([]),
+                {
+                    provide: PhotoService,
+                    useValue: {
+                        get: () => of([]),
+                        getTags: () => of([]),
+                    }
+                }
             ],
             schemas: [CUSTOM_ELEMENTS_SCHEMA]
         }).compileComponents();
@@ -56,14 +51,13 @@ describe('PortfolioComponent', () => {
     });
 
     it('should autoselect ', async () => {
+        const router = TestBed.inject(Router);
+        await router.navigateByUrl('/?tag=Digital%20Portrait');
+
         const fixture = TestBed.createComponent(PortfolioComponent);
         fixture.detectChanges();
         await fixture.whenStable();
-
-        const router = TestBed.inject(Router);
-        router.navigateByUrl('/?tag=Digital%20Portrait');
         fixture.detectChanges();
-        await fixture.whenStable();
 
         const compiled = fixture.nativeElement;
         const filterEl = compiled.querySelector('#filter');

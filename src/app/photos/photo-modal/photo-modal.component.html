@@ -1,4 +1,6 @@
 <div #modalContainer class="modal" (click)="modalClosed.emit()">
-    <span class="close" (click)="modalClosed.emit()">&times;</span>
-    <img *ngIf="photo" class="modal-content" [src]="photo!.original"/>
+  <span class="close" (click)="modalClosed.emit()">&times;</span>
+  @if (photo) {
+    <img class="modal-content" alt="{{photo!.title}}" [src]="photo!.original"/>
+  }
 </div>

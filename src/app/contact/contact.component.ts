@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
     selector: 'abma-contact',
     templateUrl: 'contact.component.html',
     styleUrls: ['./contact.component.scss'],
+    standalone: false
 })
 
 // https://themes.gohugo.io/theme/roxo-hugo/contact , dont be shy stays, social links on right
