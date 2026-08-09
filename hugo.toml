@@ -1,8 +1,9 @@
 baseURL = "https://abmorrisart.com/"
 title = "ABMORRISART"
 
-# Faithful port of the original site: 4 flat pages, no taxonomies/RSS needed.
-disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+# Faithful port of the original site: 4 flat pages. Keep the sitemap for SEO;
+# no taxonomies or RSS feed needed.
+disableKinds = ["taxonomy", "term", "RSS"]
 enableRobotsTXT = true
 
 [params]

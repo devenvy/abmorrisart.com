@@ -16,13 +16,12 @@
         </div>
     </div>
 
-    <a href="#recent-works" style="position: absolute; bottom: 15px;">
-        <a id="recent-works"></a>
-        <img src="/assets/icons/arrow-down.svg" alt="jump down" />
+    <a href="#recent-works" class="hero-scroll-down" aria-label="Jump to recent works">
+        <img src="/assets/icons/arrow-down.svg" alt="" />
     </a>
 </section>
 
-<section class="portfolio-preview">
+<section class="portfolio-preview" id="recent-works">
 
     <h2 class="section-title">My Recent Works</h2>
     {{ partial "gallery.html" (dict "photos" (first 6 hugo.Data.photos)) }}

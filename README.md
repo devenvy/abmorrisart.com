@@ -5,10 +5,10 @@ Static site for Amber Morris — Educator & Visual Artist. Built with
 
 ## Requirements
 
-- **Hugo Extended** `0.164.0` (the Extended build is required — it compiles SCSS).
-- **Dart Sass** `1.102.0` — the SCSS transpiler. Must be on your `PATH` as `sass`.
-
-Both are single binaries (no npm / `node_modules`, nothing for Dependabot to scan).
+- **Hugo Extended** `0.164.0` — a single binary. No npm, no `node_modules`,
+  nothing for Dependabot to scan. Styles are plain CSS, so there is no Sass
+  toolchain to install. (The Extended build is used so Hugo's built-in image
+  processing stays available for future use.)
 
 ### Install
 
@@ -18,10 +18,8 @@ Windows (winget):
 winget install Hugo.Hugo.Extended
 ```
 
-Dart Sass: download the release for your OS from
-<https://github.com/sass/dart-sass/releases> and add the extracted folder to your
-`PATH` (macOS/Linux users can also use `brew install sass/sass/sass` or
-`snap install dart-sass`).
+macOS/Linux: `brew install hugo`, or download the **extended** build from
+<https://github.com/gohugoio/hugo/releases>.
 
 ## Local development
 
@@ -52,7 +50,7 @@ layouts/            Templates
   _default/baseof.html   Page skeleton (head + header + main + modal + scripts)
   partials/              head, header, gallery, photo-card, modal, scripts
 assets/
-  scss/             Stylesheet (compiled by Hugo Pipes + Dart Sass)
+  css/main.css      Stylesheet (plain CSS; bundled + minified by Hugo Pipes)
   js/main.js        Mobile menu, photo lightbox (pointer-swipe), portfolio filter
 static/
   assets/images/    Portfolio images + logo (served at /assets/...)
@@ -63,8 +61,8 @@ static/
 
 ## Deployment
 
-Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds with Hugo +
-Dart Sass and publishes to GitHub Pages (custom domain `abmorrisart.com`, set via
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds with Hugo
+and publishes to GitHub Pages (custom domain `abmorrisart.com`, set via
 `static/CNAME`). Pull requests run the build as a check but do not deploy.
 
 > GitHub Pages source must be set to **GitHub Actions** in the repository settings
