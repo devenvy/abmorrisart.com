@@ -456,6 +456,33 @@ form.filter-form {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Prev / next navigation arrows */
+.modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: 0;
+  color: #f1f1f1;
+  line-height: 0;
+  cursor: pointer;
+  padding: 16px 18px;
+  z-index: 4;
+  transition: color 0.3s;
+}
+.modal-nav svg {
+  display: block;
+  width: 48px;
+  height: 48px;
+  filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.5));
+}
+.modal-prev { left: 0; }
+.modal-next { right: 0; }
+.modal-nav:hover,
+.modal-nav:focus {
+  color: #bbb;
+}
 @media only screen and (max-width: 700px) {
   .modal-content { width: 100%; }
 }

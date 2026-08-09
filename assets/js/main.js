@@ -34,6 +34,8 @@
     var modal = document.getElementById('photo-modal');
     var modalImg = document.getElementById('modal-img');
     var closeBtn = document.getElementById('modal-close');
+    var prevBtn = document.getElementById('modal-prev');
+    var nextBtn = document.getElementById('modal-next');
     if (!modal || !modalImg || !closeBtn) return;
 
     var list = [];      // [{ el, src, alt }]
@@ -104,13 +106,21 @@
       close();
     });
 
+    // Prev / next arrow buttons.
+    if (prevBtn) {
+      prevBtn.addEventListener('click', function (e) { e.stopPropagation(); back(); });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', function (e) { e.stopPropagation(); next(); });
+    }
+
     // Swipe via pointer events (mouse drag + touch). Matches the original:
     // left/up -> next, right/down -> back. A tap (no drag) does nothing.
     var startX = 0, startY = 0, tracking = false;
     var THRESHOLD = 40;
 
     modal.addEventListener('pointerdown', function (e) {
-      if (e.target === closeBtn) return;
+      if (e.target === closeBtn || e.target === prevBtn || e.target === nextBtn) return;
       tracking = true;
       startX = e.clientX;
       startY = e.clientY;
