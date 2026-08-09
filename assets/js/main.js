@@ -45,7 +45,9 @@
         if (c.classList.contains('is-hidden')) return;
         var img = c.querySelector('img');
         if (img) {
-          out.push({ el: c, src: img.getAttribute('src'), alt: img.getAttribute('alt') || '' });
+          // Prefer the larger variant for the lightbox; fall back to the thumb.
+          var full = img.getAttribute('data-full') || img.getAttribute('src');
+          out.push({ el: c, src: full, alt: img.getAttribute('alt') || '' });
         }
       });
       return out;

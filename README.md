@@ -52,8 +52,9 @@ layouts/            Templates
 assets/
   css/main.css      Stylesheet (plain CSS; bundled + minified by Hugo Pipes)
   js/main.js        Mobile menu, photo lightbox (pointer-swipe), portfolio filter
+  images/portfolio/ Source artwork — Hugo generates resized WebP variants at build
 static/
-  assets/images/    Portfolio images + logo (served at /assets/...)
+  assets/images/    logo.png (served as-is)
   assets/icons/     SVG social/UI icons
   favicon.png
   CNAME             Custom domain (abmorrisart.com)

@@ -1,8 +1,21 @@
-{{/* One gallery item. Context: a single photo entry from data/photos.json. */}}
-<div class="pure-u-2 pure-u-md-1-3 pure-u-lg-1-6 photo-container" data-tags="{{ delimit .tags " " }}">
-    <picture>
-        <source media="(max-width: 799px)" srcset="{{ .small }}">
-        <source media="(min-width: 800px)" srcset="{{ .medium }}">
-        <img class="pure-img" src="{{ .original }}" alt="{{ .title }}" loading="lazy" />
-    </picture>
+{{/* One gallery item. Context: a single photo entry from data/photos.json.
+     Images live under assets/ and are processed at build time:
+       - a 500px WebP thumbnail for the grid (src)
+       - a larger WebP (data-full) shown in the lightbox
+     Falls back to the raw path if the resource can't be found. */}}
+{{ $photo := . }}
+{{ $rp := strings.TrimPrefix "/assets/" $photo.original }}
+<div class="pure-u-2 pure-u-md-1-3 pure-u-lg-1-6 photo-container" data-tags="{{ delimit $photo.tags " " }}">
+    {{- with resources.Get $rp -}}
+        {{ $thumb := .Resize "500x webp q80" }}
+        {{ $fullW := cond (gt .Width 1200) 1200 .Width }}
+        {{ $full := .Resize (printf "%dx webp q82" $fullW) }}
+        <img class="pure-img"
+             src="{{ $thumb.RelPermalink }}"
+             width="{{ $thumb.Width }}" height="{{ $thumb.Height }}"
+             data-full="{{ $full.RelPermalink }}"
+             alt="{{ $photo.title }}" loading="lazy" />
+    {{- else -}}
+        <img class="pure-img" src="{{ $photo.original }}" alt="{{ $photo.title }}" loading="lazy" />
+    {{- end -}}
 </div>

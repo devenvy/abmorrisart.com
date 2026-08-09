@@ -1,9 +1,23 @@
 {{- $title := cond .IsHome "ABMORRISART" (printf "%s — ABMORRISART" .Title) -}}
 {{- $desc := or .Description .Site.Params.description -}}
-{{- $ogImage := "assets/images/logo.png" | absURL -}}
+{{- /* Share image: a real artwork (first portfolio piece) beats the logo.
+       Overridable via params.ogImage; falls back to the logo. */ -}}
+{{- $ogImage := "" -}}
+{{- with .Site.Params.ogImage -}}
+  {{- $ogImage = . | absURL -}}
+{{- else -}}
+  {{- with index hugo.Data.photos 0 -}}
+    {{- with resources.Get (strings.TrimPrefix "/assets/" .original) -}}
+      {{- $w := cond (gt .Width 1200) 1200 .Width -}}
+      {{- $ogImage = (.Resize (printf "%dx jpg q85" $w)).Permalink -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $ogImage -}}{{- $ogImage = "assets/images/logo.png" | absURL -}}{{- end -}}
 <meta charset="utf-8">
 <title>{{ $title }}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eaa4a4">
 <meta name="description" content="{{ $desc }}">
 <link rel="canonical" href="{{ .Permalink }}">
 <link rel="icon" type="image/png" href="/favicon.png">
