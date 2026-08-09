@@ -109,11 +109,13 @@ section.hero {
   width: 100%;
   margin-top: -80px;
   height: calc(100vh);
+  /* Soft blend through the middle instead of a hard 50/50 seam, so the
+     centered hero title doesn't read as off-center against a sharp line. */
   background: linear-gradient(
     to right,
     #f2b0b1,
-    #fdc6c3 50%,
-    #cae9e3 50%,
+    #fdc6c3 44%,
+    #cae9e3 56%,
     #b9ddd9 100%
   );
   font-family: 'Montserrat', sans-serif;
@@ -139,9 +141,14 @@ section.hero {
 .hero-links .pure-button {
   margin-right: 25px;
   margin-left: 25px;
-  color: #fff;
   font-weight: 600;
   font-size: 18px;
+}
+
+/* Pastel buttons get readable navy text everywhere (was white, ~1.3:1). */
+.pure-button.bg-pink,
+.pure-button.bg-green {
+  color: var(--color-black);
 }
 
 /* ---------- icons (CSS mask) ---------- */
@@ -257,6 +264,20 @@ section.portfolio-preview { padding-bottom: 15px; }
   bottom: 15px;
 }
 
+/* White halo so the dark arrow separates from any part of the pastel hero,
+   plus a subtle downward nudge as a scroll cue. */
+.hero-scroll-down img {
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.9));
+  animation: nudge 2s ease-in-out infinite;
+}
+@keyframes nudge {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll-down img { animation: none; }
+}
+
 /* ---------- services ---------- */
 
 section.services {
@@ -288,8 +309,8 @@ section.services {
 }
 section.services table { margin-top: 25px; }
 
-/* content links in brand pink (was default blue) */
-section.services a { color: var(--color-pink); }
+/* content links in brand navy — readable, unlike the too-light pink (was default blue) */
+section.services a { color: var(--color-black); }
 a.example-link:link,
 a.example-link:visited,
 a.example-link:hover,
@@ -342,7 +363,7 @@ section.contact a:visited,
 section.contact a:hover,
 section.contact a:active {
   text-decoration: none;
-  color: var(--color-pink);
+  color: var(--color-black); /* readable navy labels; the icons stay pink */
 }
 .social-icon {
   background: var(--color-pink);
