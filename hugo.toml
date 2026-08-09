@@ -1,0 +1,17 @@
+baseURL = "https://abmorrisart.com/"
+title = "ABMORRISART"
+
+# Faithful port of the original site: 4 flat pages, no taxonomies/RSS needed.
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+enableRobotsTXT = true
+
+[params]
+  description = "Amber Morris — Educator & Visual Artist"
+
+[markup.goldmark.renderer]
+  # Allow raw HTML in content files (the pages are HTML-heavy).
+  unsafe = true
+
+[build]
+  # Emit build stats so PurgeCSS-style tooling could hook in later; harmless otherwise.
+  writeStats = false

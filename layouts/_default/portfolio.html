@@ -1,0 +1,16 @@
+{{ define "main" }}
+<div style="padding-top: 10px;"></div>
+
+<form class="pure-form filter-form">
+    <label for="filter">Filter:</label> &nbsp;
+    <select id="filter">
+        <option value="All">All</option>
+        <option value="Digital Portrait">Digital Portrait</option>
+        <option value="Painted Portrait">Painted Portrait</option>
+        <option value="Live Event">Live Event</option>
+        <option value="Watercolor">Watercolor</option>
+    </select>
+</form>
+
+{{ partial "gallery.html" (dict "photos" hugo.Data.photos) }}
+{{ end }}

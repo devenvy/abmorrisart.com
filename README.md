@@ -1,27 +1,71 @@
-# Abmorrisart
+# abmorrisart.com
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
+Static site for Amber Morris — Educator & Visual Artist. Built with
+[Hugo](https://gohugo.io) (Extended) and deployed to GitHub Pages.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- **Hugo Extended** `0.164.0` (the Extended build is required — it compiles SCSS).
+- **Dart Sass** `1.102.0` — the SCSS transpiler. Must be on your `PATH` as `sass`.
 
-## Code scaffolding
+Both are single binaries (no npm / `node_modules`, nothing for Dependabot to scan).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Install
 
-## Build
+Windows (winget):
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```powershell
+winget install Hugo.Hugo.Extended
+```
 
-## Running unit tests
+Dart Sass: download the release for your OS from
+<https://github.com/sass/dart-sass/releases> and add the extracted folder to your
+`PATH` (macOS/Linux users can also use `brew install sass/sass/sass` or
+`snap install dart-sass`).
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Local development
 
-## Running end-to-end tests
+```bash
+hugo server
+```
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Then open <http://localhost:1313/>. The site rebuilds on save.
 
-## Further help
+## Production build
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+hugo --gc --minify
+```
+
+Output is written to `public/`.
+
+## Project structure
+
+```
+content/            Page stubs (front matter only); each maps to a layout
+  _index.md         -> layouts/index.html            (home)
+  portfolio.md      -> layouts/_default/portfolio.html
+  services.md       -> layouts/_default/services.html
+  contact.md        -> layouts/_default/contact.html
+data/photos.json    Portfolio photo metadata (title, tags, image paths)
+layouts/            Templates
+  _default/baseof.html   Page skeleton (head + header + main + modal + scripts)
+  partials/              head, header, gallery, photo-card, modal, scripts
+assets/
+  scss/             Stylesheet (compiled by Hugo Pipes + Dart Sass)
+  js/main.js        Mobile menu, photo lightbox (pointer-swipe), portfolio filter
+static/
+  assets/images/    Portfolio images + logo (served at /assets/...)
+  assets/icons/     SVG social/UI icons
+  favicon.png
+  CNAME             Custom domain (abmorrisart.com)
+```
+
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds with Hugo +
+Dart Sass and publishes to GitHub Pages (custom domain `abmorrisart.com`, set via
+`static/CNAME`). Pull requests run the build as a check but do not deploy.
+
+> GitHub Pages source must be set to **GitHub Actions** in the repository settings
+> (Settings -> Pages -> Build and deployment -> Source).

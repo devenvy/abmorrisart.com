@@ -1,0 +1,6 @@
+{{/* Photo grid. Param: "photos" = slice of photo entries. */}}
+<section class="pure-g photo-gallery">
+    {{ range .photos }}
+        {{ partial "photo-card.html" . }}
+    {{ end }}
+</section>
