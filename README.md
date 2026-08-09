@@ -1,27 +1,70 @@
-# Abmorrisart
+# abmorrisart.com
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.10.
+Static site for Amber Morris — Educator & Visual Artist. Built with
+[Hugo](https://gohugo.io) (Extended) and deployed to GitHub Pages.
 
-## Development server
+## Requirements
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- **Hugo Extended** `0.164.0` — a single binary. No npm, no `node_modules`,
+  nothing for Dependabot to scan. Styles are plain CSS, so there is no Sass
+  toolchain to install. (The Extended build is used so Hugo's built-in image
+  processing stays available for future use.)
 
-## Code scaffolding
+### Install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Windows (winget):
 
-## Build
+```powershell
+winget install Hugo.Hugo.Extended
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+macOS/Linux: `brew install hugo`, or download the **extended** build from
+<https://github.com/gohugoio/hugo/releases>.
 
-## Running unit tests
+## Local development
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+hugo server
+```
 
-## Running end-to-end tests
+Then open <http://localhost:1313/>. The site rebuilds on save.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Production build
 
-## Further help
+```bash
+hugo --gc --minify
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Output is written to `public/`.
+
+## Project structure
+
+```
+content/            Page stubs (front matter only); each maps to a layout
+  _index.md         -> layouts/index.html            (home)
+  portfolio.md      -> layouts/_default/portfolio.html
+  services.md       -> layouts/_default/services.html
+  contact.md        -> layouts/_default/contact.html
+data/photos.json    Portfolio photo metadata (title, tags, image paths)
+layouts/            Templates
+  _default/baseof.html   Page skeleton (head + header + main + modal + scripts)
+  partials/              head, header, gallery, photo-card, modal, scripts
+assets/
+  css/main.css      Stylesheet (plain CSS; bundled + minified by Hugo Pipes)
+  js/main.js        Mobile menu, photo lightbox (pointer-swipe), portfolio filter
+  images/portfolio/ Source artwork — Hugo generates resized WebP variants at build
+static/
+  assets/images/    logo.png (served as-is)
+  assets/icons/     SVG social/UI icons
+  favicon.png
+  CNAME             Custom domain (abmorrisart.com)
+```
+
+## Deployment
+
+Pushing to `main` triggers `.github/workflows/deploy.yml`, which builds with Hugo
+and publishes to GitHub Pages (custom domain `abmorrisart.com`, set via
+`static/CNAME`). Pull requests run the build as a check but do not deploy.
+
+> GitHub Pages source must be set to **GitHub Actions** in the repository settings
+> (Settings -> Pages -> Build and deployment -> Source).

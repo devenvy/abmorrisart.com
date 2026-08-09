@@ -1,0 +1,23 @@
+{{- /* JSON-LD structured data. Person schema on the home page ties the site
+       to Amber Morris and her social profiles for search/knowledge-graph.
+       Built as a dict and encoded once with jsonify for guaranteed-valid JSON. */ -}}
+{{- if .IsHome -}}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "Person"
+  "name" "Amber Morris"
+  "url" .Site.BaseURL
+  "jobTitle" (slice "Educator" "Visual Artist")
+  "image" (absURL "assets/images/logo.png")
+  "sameAs" (slice
+    "https://twitter.com/abmorrisart"
+    "https://instagram.com/abmorrisart"
+    "https://facebook.com/abmorrisart"
+    "https://twitch.tv/abmorrisart"
+    "https://www.youtube.com/channel/UCvlvNpy-Ijft_IpFBAbbJKQ"
+    "https://abmorrisart.redbubble.com"
+    "https://abmorrisart.etsy.com"
+    "https://patreon.com/abmorrisart")
+-}}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>
+{{- end -}}

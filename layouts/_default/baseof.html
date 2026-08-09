@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+  <div class="static-header-deadspace"></div>
+
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+
+  {{ partial "modal.html" . }}
+  {{ partial "scripts.html" . }}
+</body>
+
+</html>
