@@ -109,13 +109,12 @@ section.hero {
   width: 100%;
   margin-top: -80px;
   height: calc(100vh);
-  /* Soft blend through the middle instead of a hard 50/50 seam, so the
-     centered hero title doesn't read as off-center against a sharp line. */
+  /* Hard two-tone split at the center (each half keeps a subtle wash). */
   background: linear-gradient(
     to right,
     #f2b0b1,
-    #fdc6c3 44%,
-    #cae9e3 56%,
+    #fdc6c3 50%,
+    #cae9e3 50%,
     #b9ddd9 100%
   );
   font-family: 'Montserrat', sans-serif;
@@ -123,7 +122,7 @@ section.hero {
 
 .hero-title {
   font-weight: 600;
-  font-size: 60px;
+  font-size: 64px;
   text-align: center;
   font-family: 'Montserrat', sans-serif;
 }
@@ -141,14 +140,13 @@ section.hero {
 .hero-links .pure-button {
   margin-right: 25px;
   margin-left: 25px;
-  font-weight: 600;
   font-size: 18px;
 }
 
-/* Pastel buttons get readable navy text everywhere (was white, ~1.3:1). */
+/* Pastel buttons get readable dark-gray text everywhere (was white, ~1.3:1). */
 .pure-button.bg-pink,
 .pure-button.bg-green {
-  color: var(--color-black);
+  color: #333333;
 }
 
 /* ---------- icons (CSS mask) ---------- */
