@@ -9,7 +9,9 @@
   {{ partial "header.html" . }}
   <div class="static-header-deadspace"></div>
 
-  {{ block "main" . }}{{ end }}
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
 
   {{ partial "modal.html" . }}
   {{ partial "scripts.html" . }}
